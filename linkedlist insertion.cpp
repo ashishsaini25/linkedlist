@@ -26,9 +26,14 @@ void insertAtHead(node *&head,int data){
     head=n;
 }
 void insertAttail(node *&head,int data){
+    if(head==NULL){
+        insertAtHead(head,data);
+    }
+    else{
     node *tmp=head;
     while(tmp->next!=NULL)tmp=tmp->next;
     tmp->next=new node(data);
+    }
 }
 
 // insert after the required position.
@@ -79,12 +84,12 @@ void print(node *head){
 
 int main(){
     node *head=NULL;
-    insertAtHead(head,10);
+    insertAttail(head,10);
     insertAtHead(head,20);
     insertAtHead(head,30);
     insertAfterElement(head,40,50);
     //insertAtHead(head,50);
-   // insertAttail(head,100);
+    insertAttail(head,100);
  //   insertAttail(head,500);
     print(head);
 
